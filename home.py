@@ -1,6 +1,5 @@
 import streamlit as st
 import hydralit_components as hc
-from PIL import Image
 #import streamlit_analytics
 
 def home_page():

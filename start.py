@@ -1,6 +1,5 @@
 import streamlit as st
 import hydralit_components as hc
-from PIL import Image
 
 from home import home_page
 from datasets import datasets_page
