@@ -1,15 +1,6 @@
 import streamlit as st
-import hydralit_components as hc
 
-from home import home_page
-from datasets import datasets_page
-from metaprogram import metaprogram
-from spatial_gene import spatial_gene
-from spatial_tf import spatial_tf
-from spatial_pathway import spatial_pathway
-from ligand_receptor import ligand_receptor
-from contact import contact_page
-
+# --- PAGE SETUP ----
 
 st.set_page_config(
         page_title='GBM',
@@ -17,7 +8,8 @@ st.set_page_config(
         initial_sidebar_state="expanded",
 )
 
-max_width_str = f"max-width: {85}%;"
+max_width_str = f"max-width: {80}%;"
+
 st.markdown(f"""
         <style>
         .appview-container .main .block-container{{{max_width_str}}}
@@ -26,66 +18,72 @@ st.markdown(f"""
         unsafe_allow_html=True,
     )
 
-#Image.MAX_IMAGE_PIXELS = None
+home_page = st.Page(
+    page = "views/home.py",
+    title = "Home",
+    icon = ":material/home:",
+    default= True,
+)
 
-HOME = "Home"
-DATA = "Datasets"
-META = "Metaprogram"
-GENE = "Spatial Gene Expression"
-S_TF = "Spatial TF Activity"
-S_PATHWAY = "Spatial Pathway Activity"
-LIGAND = "Ligand-Receptor-TF-Pathway"
-CONTACT = "Contact Us"
+datasets_page = st.Page(
+    page = "views/datasets.py",
+    title = "Datasets",
+    icon = ":material/dataset:"
+)
 
-tabs = [
-    HOME,
-    DATA,
-    META,
-    GENE,
-    S_TF,
-    S_PATHWAY,
-    LIGAND,
-    CONTACT
-]
+metaprogram_page = st.Page(
+    page = "views/metaprogram.py",
+    title = "Metaprogram",
+    icon = ":material/computer:"    
+)
 
-option_data = [
-    {'icon': "🏠", 'label':HOME},
-    {'icon': "💾", 'label':DATA},
-    {'icon': "💻", 'label':META},
-    {'icon': "🧬", 'label':GENE},
-    {'icon': "🔄", 'label':S_TF},
-    {'icon': "👣", 'label':S_PATHWAY},
-    {'icon': "📡", 'label':LIGAND},
-    {'icon': "☎️", 'label':CONTACT}
-]
+gene_page = st.Page(
+    page = "views/spatial_gene.py",
+    title = "Spatial Gene Expression",
+    icon = ":material/genetics:"
+)
 
-theme = {'txc_inactive': 'white','menu_background':'#808080','txc_active':'black'}
-chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), 
-    hide_streamlit_markers= bool(True))
+s_tf_page = st.Page(
+    page = "views/spatial_tf.py",
+    title = "Spatial TF Activity",
+    icon = ":material/cycle:"
+)
 
-if chosen_tab == HOME:
-    home_page()
+s_pathway_page = st.Page(
+    page = "views/spatial_pathway.py",
+    title = "Spatial Pathway Activity",
+    icon = ":material/footprint:"
+)
 
-if chosen_tab == DATA:
-    datasets_page()
+ligand_page = st.Page(
+    page = "views/ligand_receptor.py",
+    title = "Ligand-Receptor-TF-Pathway",
+    icon = ":material/settings_input_antenna:"
+)
 
-elif chosen_tab == META:
-    metaprogram()
+contact_page = st.Page(
+    page = "views/contact.py",
+    title = "Contact Us",
+    icon = ":material/contact_page:"
+)
 
-elif chosen_tab == GENE:
-    spatial_gene()
+# -- NAVIGATION --
 
-elif chosen_tab == S_TF:
-    spatial_tf()
+pg = st.navigation(
+    {
+        "Menu": [home_page, datasets_page, metaprogram_page, gene_page, s_tf_page, s_pathway_page, ligand_page],
+        "Contact": [contact_page]
+    }
+)
 
-elif chosen_tab == S_PATHWAY:
-    spatial_pathway()
 
-elif chosen_tab == LIGAND:
-    ligand_receptor()
+# -- SHARED ON ALL PAGES --
+st.sidebar.text("Made by Osmanbeyoglu Lab")
 
-elif chosen_tab == CONTACT:
-    contact_page()
+
+# -- RUN NAVIGATION --
+pg.run()
+
 
 
 
