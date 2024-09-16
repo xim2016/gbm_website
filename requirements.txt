@@ -1,5 +1,5 @@
 streamlit==1.38.0
-hydralit==2.4.1
+hydralit==1.0.14
 hydralit_components==1.0.10
 streamlit_pdf_viewer==0.0.17
 
