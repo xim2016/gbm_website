@@ -3,3 +3,4 @@ hydralit==1.0.14
 hydralit-components==1.0.10
 streamlit_pdf_viewer==0.0.17
 pandas==2.0.2
+numpy==1.24.3
