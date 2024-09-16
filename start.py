@@ -37,6 +37,12 @@ metaprogram_page = st.Page(
     icon = ":material/computer:"    
 )
 
+multiple_samples_page = st.Page(
+    page = "views/multiple_samples.py",
+    title = "Multiple Samples",
+    icon = ":material/labs:"
+)
+
 gene_page = st.Page(
     page = "views/spatial_gene.py",
     title = "Spatial Gene Expression",
@@ -71,7 +77,7 @@ contact_page = st.Page(
 
 pg = st.navigation(
     {
-        "Menu": [home_page, datasets_page, metaprogram_page, gene_page, s_tf_page, s_pathway_page, ligand_page],
+        "Menu": [home_page, datasets_page, metaprogram_page, multiple_samples_page, gene_page, s_tf_page, s_pathway_page, ligand_page],
         "Contact": [contact_page]
     }
 )
