@@ -17,7 +17,7 @@ list2 = file2.read().splitlines()
 option_data = [
 {'icon': "", 'label':i} for i in ['TF Activity', 'Pathway']]
 
-over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'black','option_active':'#F0F2F6'}
+over_theme = {'txc_inactive': 'black','menu_background':'#A9A9A9','txc_active':'black','option_active':'#F0F2F6'}
 
 page = hc.option_bar(
     option_definition=option_data,

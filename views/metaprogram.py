@@ -13,7 +13,7 @@ sample_list = ['MGH258', 'UKF243', 'UKF248', 'UKF251', 'UKF255', 'UKF259', 'UKF2
 option_data = [
 {'icon': "", 'label':i} for i in ['Metaprogram Overview', 'Metaprogram TF Activity']]
 
-over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'black','option_active':'#F0F2F6'}
+over_theme = {'txc_inactive': 'black','menu_background':'#A9A9A9','txc_active':'black','option_active':'#F0F2F6'}
 
 page = hc.option_bar(
     option_definition=option_data,
